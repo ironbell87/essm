@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../javascripts/simulation.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <link rel="shortcut icon" href="https://ironbell87.github.io/structural_mechanics_II/images/ironbell_icon.png">
+    <title>Member forces of a truss</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header_wrapper" style="background-image: url('../images/chap.03.jpg');">
+        <h1 class="header_title">트러스(truss)의 부재력(member force)</h1>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content_wrapper">
+        <!--inline script for left-align of MathJax equation-->
+        <script>
+            if (MathJax) {
+                MathJax.Hub.Config({ displayAlign: "left" });
+                MathJax.Hub.Rerender();
+            }
+        </script>
+        <!--inline script for left-align of MathJax equation-->
+        <h3><a name="purpose"></a>목표</h3>
+        <ul>
+            <li>트러스(truss)의 부재력(member force), 즉 축력(axial force) 계산</li>
+            <li>축변형(axial deformation)을 일으키는 축력 계산</li>
+        </ul>
+        <h3><a name="background"></a>이론적 배경</h3>
+        <ul>
+            <li>
+                절점법을 이용한 트러스의 축력 계산
+                <p><img src="images\03.02.01.png" onload="this.width/=2;"></p>
+                <ol>
+                    <li>
+                        구조물 전체를 대상으로 FBD를 작성하고 평형조건식을 적용하여 지점반력을 계산
+                        <p>
+                            <img src="images\03.02.02.png" onload="this.width/=2;">
+                        </p>
+                        \(H_A=4 kN \quad V_A=11/3 kN \quad V_C=-5/3 kN \)
+                        </p>
+                    </li>
+                    <li>
+                        부재 수가 2개 이하인 절점 A를 선택하여 그에 연결된 부재 AB, AD를 절단하여 자유물체도를 작성. 여기에서 미지의 축력 AB, AD를 인장력으로 가정하고 평형조건식을 적용하여 AB, AD를 계산
+                        <p>
+                            <img src="images\03.02.03.png" onload="this.width/=2;">
+                        </p>
+                        \(\sum F_y=11/3+4/5 AD=0 \quad \therefore AD=-55/12 kN \\
+                        \sum F_x=4 + AB + 3/5 AD=0 \quad \therefore AB=-5/4 kN\)
+                        </p>
+                    </li>
+                    <li>
+                        절점 B를 선택하여 그에 연결된 부재 AB, BC, BD를 절단하여 자유물체도를 작성. 앞에서 구한 AB는 압축력이므로, 여기에도 압축력으로 표시. 미지의 축력 BC, BD는 인장력으로 가정하고 평형조건식을 적용하여 BC, BD를 계산
+                        <p>
+                            <img src="images\03.02.04.png" onload="this.width/=2;">
+                        </p>
+                        \(\sum F_y=BD-2=0 \quad \therefore BD=2 kN \\
+                        \sum F_x=-AB + BC=0 \quad \therefore BC=AB=-5/4 kN\)
+                        </p>
+                    </li>
+                    <li>
+                        마지막으로 절점 C를 선택하여 그에 연결된 부재를 절단하여 자유물체도를 작성. 앞에서 구한 BC는 압축력이므로, 여기에도 압축력으로 표시. 미지의 축력 CD는 인장력으로 가정하고 평형조건식을 적용하여 CD를 계산
+                        <p>
+                            <img src="images\03.02.05.png" onload="this.width/=2;">
+                        </p>
+                        \(\sum F_y=-5/3+4/5 CD=0 \quad \therefore CD=25/12 kN \)
+                        </p>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                단면적 \(A\), 탄성계수 \(E\)인 단면을 갖고 길이가 \(L\)인 부재에 축력 \(P\)가 작용하면, 축변형 \(\Delta = PL/EA\).
+                따라서, 축변형 \(\Delta\)가 발생했다면, 가해진 축력 \(P = \Delta EA/L\)
+            </li>
+        </ul>
+        <h3><a name="simulation"></a>모의실험</h3>
+        <ul>
+            <li>
+                설치(setting)
+                <p><img src="images\03.02.06.png" onload="this.width/=2;"></p>
+                부재의 길이 \(L\) : <input type="number" id="L" class="input_simulation" placeholder="숫자로 입력하세요" value="1"> \(m\)<br />
+                부재의 단면적 \(A\) : <input type="number" id="A" class="input_simulation" placeholder="숫자로 입력하세요" value="100"> \(mm^2\)<br />
+                부재의 탄성계수 \(E\) : <input type="number" id="E" class="input_simulation" placeholder="숫자로 입력하세요" value="210000"> \(MPa\)
+            </li>
+            <li>
+                가력(loading)<br />
+                집중하중 \(P\) : <input type="number" id="P" class="input_simulation" placeholder="숫자로 입력하세요" value="10"> \(kN\)
+            </li>
+            <li>
+                측정(measurement)<br />
+                점 \(A, \, B, \, \cdots, \, H\)의 변위(가력 후 \(x\) 또는 \(y\) 방향으로 이동한 거리)<br />
+                <input type="submit" id="truss_simulation_submit" class="submit_simulation" value="모의실험 실행">
+                <span class="span_simulation"></span>
+            </li>
+        </ul>
+        <h3><a name="simulation_result"></a>모의실험 측정 결과</h3>
+        <ul>
+            <li>
+                점 \(A, \, B, \, \cdots, \, H\)의 변위 \((mm)\)
+                <div>
+                    <table>
+                        <tr>
+                            <td>
+                                <br />
+                                \(A\)<br />
+                                \(B\)<br />
+                                \(C\)<br />
+                                \(D\)<br />
+                                \(E\)<br />
+                                \(F\)<br />
+                                \(G\)<br />
+                                \(H\)
+                            </td>
+                            <td>
+                                \(x\)<br />
+                                <input type="number" id="A_x" class="input_table" readonly><br />
+                                <input type="number" id="B_x" class="input_table" readonly><br />
+                                <input type="number" id="C_x" class="input_table" readonly><br />
+                                <input type="number" id="D_x" class="input_table" readonly><br />
+                                <input type="number" id="E_x" class="input_table" readonly><br />
+                                <input type="number" id="F_x" class="input_table" readonly><br />
+                                <input type="number" id="G_x" class="input_table" readonly><br />
+                                <input type="number" id="H_x" class="input_table" readonly>
+                            </td>
+                            <td>
+                                \(y\)<br />
+                                <input type="number" id="A_y" class="input_table" readonly><br />
+                                <input type="number" id="B_y" class="input_table" readonly><br />
+                                <input type="number" id="C_y" class="input_table" readonly><br />
+                                <input type="number" id="D_y" class="input_table" readonly><br />
+                                <input type="number" id="E_y" class="input_table" readonly><br />
+                                <input type="number" id="F_y" class="input_table" readonly><br />
+                                <input type="number" id="G_y" class="input_table" readonly><br />
+                                <input type="number" id="H_y" class="input_table" readonly>
+                            </td>
+                        </tr>
+                    </table>
+                </div><br />
+            </li>
+            <li>
+                직접 계산한 점 \(A, \, B, \, \cdots, \, H\)의 변위를 모의실험 측정값과 비교
+            </li>
+        </ul>
+        <h3><a name="analysis"></a>분석</h3>
+        <ul>
+            <li>
+                주어진 조건에 따라 절점법으로 트러스의 축력을 계산
+            </li>
+            <li>
+                \(A, \, B, \, \cdots, \, H\) 점의 변위로부터 트러스 부재 \(AD, \, AB, \, \cdots, \, GH\)의 길이 변화, 측 축변형을 계산
+            </li>
+            <li>
+                축변형으로 축력을 계산
+            </li>
+            <li>
+                절점법으로 계산한 축력과 축변형으로 계산한 축력을 비교하고 그 차이와 원인을 파악
+            </li>
+        </ul>
+        <h3><a name="concluding_remark"></a>맺음말</h3>
+        <ul>
+            <li>
+                모의실험, 측정 결과, 분석 결과 요약
+            </li>
+            <li>
+                이 과정에서 파악한 사실, 특이 사항, 기타 등을 기술
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
