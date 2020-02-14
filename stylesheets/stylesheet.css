@@ -98,9 +98,9 @@ img.top_margin {
 .header_wrapper {
     /*border: 1px solid #73AD21;*/
     background-repeat: no-repeat;
-    background-size: 100%;
-    width: 100vw; /* vw = viewport width including vertical scrollbar */
-    height: 100vh; /* vh = viewport height including horizontal scrollbar */
+    background-size: cover;
+    width: 100vw; /* vw = viewport width including vertical scrollbar, vmax = max(vw,vh)/100 */
+    height: 100vh; /* vh = viewport height including horizontal scrollbar, vmin = min(vw,vh)/100 */
     z-index: 900;
 }
 

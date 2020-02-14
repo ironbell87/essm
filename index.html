@@ -16,7 +16,7 @@
             $(".main").onepage_scroll({
                 sectionContainer: "section",
                 updateURL: true,
-                responsiveFallback: 600,
+                responsiveFallback: 0, // 0 = make onepage_scroll work for any size of viewport; 600 = make onepage_scroll work only when the size of viewport is larger than 600(?)
                 loop: false
             });
         });
