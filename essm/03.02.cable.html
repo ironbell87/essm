@@ -43,52 +43,52 @@
                     </li>
                     <li>
                         케이블의 지점반력 및 부재력, 길이 및 하중의 작용점 위치 계산
-                        <p><img src="images\03.01.01.png" onload="this.width/=2;"></p>
+                        <p><img src="images\03.02.01.png" onload="this.width/=2;"></p>
                         <ol>
                             <li>
                                 케이블 전체를 대상으로 FBD를 작성하고 평형조건식을 적용하여 \(V_A, \ V_D\)를 계산
-                                <img src="images\03.01.02.png" onload="this.width/=2;"><br />
+                                <img src="images\03.02.02.png" onload="this.width/=2;"><br />
                                 \(\sum M_A=-6 \times 3 - 3 \times 6 + V_D \times 9 = 0 \quad \therefore V_D=4 kN \\
                                 \sum F_y = V_A - 6 - 3 + V_D = 0 \quad \therefore V_A=5 kN \\
                                 \sum F_x = H_A + H_D = 0 \quad \therefore H_D = - H_A\)
                             </li>
                             <li>
                                 집중하중이 작용하고 높이가 주어진 점 B를 구조물 내부의 회전절점으로 설정하여 가상으로 절단한 후, 여기에 FBD를 작성하고 평형조건식을 적용하여 \(H_A, \, H_D\)를 계산
-                                <img src="images\03.01.03.png" onload="this.width/=2;"><br />
+                                <img src="images\03.02.03.png" onload="this.width/=2;"><br />
                                 \(\sum M_B=-5 \times 3 - H_A \times 1 = 0 \quad \therefore H_A=-15 kN \\
                                 H_D = - H_A \quad \therefore H_D = 15 kN\)
                             </li>
                             <li>
                                 케이블 AB 부분을 가상으로 절단하고, 인장력만 작용하는 트러스 부재로 설정하여, FBD를 작성하고 평형조건식을 적용. 단, 케이블 인장력의 수평방향 성분 \(AB_H\)는 지점반력의 수평방향 성분 \(H_A\)와 같으므로 그 크기는 \(15kN\)
-                                <img src="images\03.01.04.png" onload="this.width/=2;">
+                                <img src="images\03.02.04.png" onload="this.width/=2;">
                                 \(AB_H=H_A \quad \therefore AB_H=15 kN \\
                                 \sum F_y = 5 - AB_V = 0 \quad \therefore AB_V=5 kN \)
                                 케이블 AB의 인장력은 수평방향 성분 \(AB_H\)와 수직방향 성분 \(AB_V\)를 합성한 \(AB\)이므로
                                 \(AB = \sqrt{AB_H^2 + AB_V^2} = 5\sqrt{10} kN\)<br />
                                 케이블 AB와 부재력 AB의 방향이 일치하므로
-                                <img src="images\03.01.05.png" onload="this.width/=2;">
+                                <img src="images\03.02.05.png" onload="this.width/=2;">
                                 \(15:5\sqrt{10} = 3:\overline{AB} \quad \therefore \overline{AB} = \sqrt{10}m\)
                             </li>
                             <li>
                                 케이블 BC 부분을 가상으로 절단하고, 인장력만 작용하는 트러스 부재로 설정하여, FBD를 작성하고 평형조건식을 적용. 케이블 인장력의 수평방향 성분 \(BC_H\)는 지점반력의 수평방향 성분 \(H_A\)와 같으므로 그 크기는 \(15kN\)
-                                <img src="images\03.01.06.png" onload="this.width/=2;">
+                                <img src="images\03.02.06.png" onload="this.width/=2;">
                                 \(BC_H=H_A \quad \therefore BC_H=15 kN \\
                                 \sum F_y = 5 - 6 + BC_V = 0 \quad \therefore BC_V=1 kN \)
                                 케이블 BC의 인장력은 수평방향 성분 \(BC_H\)와 수직방향 성분 \(BC_V\)를 합성한 \(BC\)이므로
                                 \(BC = \sqrt{BC_H^2 + BC_V^2} = \sqrt{226} kN\)<br />
                                 케이블 BC와 부재력 BC의 방향이 일치하므로
-                                <img src="images\03.01.07.png" onload="this.width/=2;">
+                                <img src="images\03.02.07.png" onload="this.width/=2;">
                                 \(15:\sqrt{226} = 3:\overline{BC} \quad \therefore \overline{BC} = \sqrt{226}/5m\ \quad 15:3 = 1:h_{BC} \quad \therefore h_{BC} = 1/5m \)
                             </li>
                             <li>
                                 케이블 CD 부분을 가상으로 절단하고, 인장력만 작용하는 트러스 부재로 설정하여, FBD를 작성하고 평형조건식을 적용. 케이블 인장력의 수평방향 성분 \(CD_H\)는 지점반력의 수평방향 성분 \(H_D\)와 같으므로 그 크기는 \(15kN\)
-                                <img src="images\03.01.08.png" onload="this.width/=2;">
+                                <img src="images\03.02.08.png" onload="this.width/=2;">
                                 \(CD_H=H_D \quad \therefore CD_H=15 kN \\
                                 \sum F_y = 4 - CD_V = 0 \quad \therefore CD_V=4 kN \)
                                 케이블 CD의 인장력은 수평방향 성분 \(CD_H\)와 수직방향 성분 \(CD_V\)를 합성한 \(CD\)이므로
                                 \(CD = \sqrt{CD_H^2 + CD_V^2} = \sqrt{241} kN\)<br />
                                 케이블 CD와 부재력 CD의 방향이 일치하므로
-                                <img src="images\03.01.09.png" onload="this.width/=2;">
+                                <img src="images\03.02.09.png" onload="this.width/=2;">
                                 \(15:\sqrt{241} = 3:\overline{CD} \quad \therefore \overline{CD} = \sqrt{241}/5m\ \quad 15:4 = 3:h_{CD} \quad \therefore h_{CD} = 4/5m \)
                             </li>
                         </ol>
@@ -101,7 +101,7 @@
                     </li>
                     <li>
                         설치(setting)
-                        <p><img src="images\03.01.10.png" onload="this.width/=2;"></p>
+                        <p><img src="images\03.02.10.png" onload="this.width/=2;"></p>
                         적당한 길이의 케이블을 묶은 지지대를 양쪽 저울 위에 얹음
                     </li>
                     <li>

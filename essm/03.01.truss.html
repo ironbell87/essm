@@ -40,38 +40,38 @@
                 <ul>
                     <li>
                         절점법을 이용한 트러스의 축력 계산
-                        <p><img src="images\03.02.01.png" onload="this.width/=2;"></p>
+                        <p><img src="images\03.01.01.png" onload="this.width/=2;"></p>
                         <ol>
                             <li>
                                 구조물 전체를 대상으로 FBD를 작성하고 평형조건식을 적용하여 지점반력을 계산
                                 <p>
-                                    <img src="images\03.02.02.png" onload="this.width/=2;">
+                                    <img src="images\03.01.02.png" onload="this.width/=2;">
                                 </p>
                                 \(H_A=4 kN \quad V_A=11/3 kN \quad V_C=-5/3 kN \)
                                 </p>
                             </li>
                             <li>
-                                부재 수가 2개 이하인 절점 A를 선택하여 그에 연결된 부재 AB, AD를 절단하여 자유물체도를 작성. 여기에서 미지의 축력 AB, AD를 인장력으로 가정하고 평형조건식을 적용하여 AB, AD를 계산
+                                부재 수가 2개 이하인 절점 A를 선택하여 그에 연결된 부재 AB, AD를 절단하여 자유물체도를 작성. 여기에서 미지의 축력 AB, AD를 인장력으로 가정하고 평형조건식을 적용하여 계산
                                 <p>
-                                    <img src="images\03.02.03.png" onload="this.width/=2;">
+                                    <img src="images\03.01.03.png" onload="this.width/=2;">
                                 </p>
                                 \(\sum F_y=11/3+4/5 AD=0 \quad \therefore AD=-55/12 kN \\
                                 \sum F_x=4 + AB + 3/5 AD=0 \quad \therefore AB=-5/4 kN\)
                                 </p>
                             </li>
                             <li>
-                                절점 B를 선택하여 그에 연결된 부재 AB, BC, BD를 절단하여 자유물체도를 작성. 앞에서 구한 AB는 압축력이므로, 여기에도 압축력으로 표시. 미지의 축력 BC, BD는 인장력으로 가정하고 평형조건식을 적용하여 BC, BD를 계산
+                                절점 B를 선택하여 그에 연결된 부재 AB, BC, BD를 절단하여 자유물체도를 작성. 앞에서 구한 AB는 압축력이지만, 여기에서는 인장력으로 표시하고 식에는 음수로 적용. 미지의 축력 BC, BD는 인장력으로 가정하고 평형조건식을 적용하여 계산
                                 <p>
-                                    <img src="images\03.02.04.png" onload="this.width/=2;">
+                                    <img src="images\03.01.04.png" onload="this.width/=2;">
                                 </p>
                                 \(\sum F_y=BD-2=0 \quad \therefore BD=2 kN \\
                                 \sum F_x=-AB + BC=0 \quad \therefore BC=AB=-5/4 kN\)
                                 </p>
                             </li>
                             <li>
-                                마지막으로 절점 C를 선택하여 그에 연결된 부재를 절단하여 자유물체도를 작성. 앞에서 구한 BC는 압축력이므로, 여기에도 압축력으로 표시. 미지의 축력 CD는 인장력으로 가정하고 평형조건식을 적용하여 CD를 계산
+                                마지막으로 절점 C를 선택하여 그에 연결된 부재를 절단하여 자유물체도를 작성. 앞에서 구한 BC는 압축력이지만, 여기에서는 인장력으로 표시. 미지의 축력 CD는 인장력으로 가정하고 평형조건식을 적용하여 계산
                                 <p>
-                                    <img src="images\03.02.05.png" onload="this.width/=2;">
+                                    <img src="images\03.01.05.png" onload="this.width/=2;">
                                 </p>
                                 \(\sum F_y=-5/3+4/5 CD=0 \quad \therefore CD=25/12 kN \)
                                 </p>
@@ -87,7 +87,7 @@
                 <ul>
                     <li>
                         설치(setting)
-                        <p><img src="images\03.02.06.png" onload="this.width/=2;"></p>
+                        <p><img src="images\03.01.06.png" onload="this.width/=2;"></p>
                         부재의 길이 \(L\) : <input type="number" id="L" class="input_simulation" placeholder="숫자로 입력하세요" value="1"> \(m\)<br />
                         부재의 단면적 \(A\) : <input type="number" id="A" class="input_simulation" placeholder="숫자로 입력하세요" value="100"> \(mm^2\)<br />
                         부재의 탄성계수 \(E\) : <input type="number" id="E" class="input_simulation" placeholder="숫자로 입력하세요" value="210000"> \(MPa\)
@@ -147,9 +147,6 @@
                             </table>
                         </div><br />
                     </li>
-                    <li>
-                        직접 계산한 점 \(A, \, B, \, \cdots, \, H\)의 변위를 모의실험 측정값과 비교
-                    </li>
                 </ul>
                 <h3><a name="analysis"></a>분석</h3>
                 <ul>
@@ -157,13 +154,13 @@
                         주어진 조건에 따라 절점법으로 트러스의 축력을 계산
                     </li>
                     <li>
-                        \(A, \, B, \, \cdots, \, H\) 점의 변위로부터 트러스 부재 \(AD, \, AB, \, \cdots, \, GH\)의 길이 변화, 측 축변형을 계산
+                        \(A, \, B, \, \cdots, \, H\) 점의 변위로부터 트러스 부재 \(AD, \, AB, \, \cdots, \, GH\)의 길이 변화, 즉 축변형을 계산
                     </li>
                     <li>
-                        축변형으로 축력을 계산
+                        축변형으로부터 축력을 계산
                     </li>
                     <li>
-                        절점법으로 계산한 축력과 축변형으로 계산한 축력을 비교하고 그 차이와 원인을 파악
+                        절점법으로 계산한 축력과 축변형으로부터 계산한 축력을 비교하고 그 차이와 원인을 파악
                     </li>
                 </ul>
                 <h3><a name="concluding_remark"></a>맺음말</h3>
